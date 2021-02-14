@@ -1,0 +1,20 @@
+#comments on new lines must have a '#' infront of them
+
+put 1 0 #comments after instructions don't have to have '#' infront of them, but its good practice
+put 1 1 #puts these two values in the address space
+
+vput 1 0
+vput 1 6 #puts the values for a `A` in the v-address space
+vput 1 7 #the eigth bit in v-addr makes `prnt` print a newline, so we set that high
+prnt #prints the current character in the v-address space (and a newline if the NewLineBit is set high)
+
+equl 0 1 7 #if the values at indexes 0 and 1 in the address space are the same value, the index 7 is written to 1, else it is written to 0. in this case, it should be 1
+
+vequl 0 6 1 #if the characters at 0 and 6 in v-addr are the same (which they are as this is set to an 'A') the bit at index 1 is set high, making the character a `a` without changing anything else
+prnt #prints a `a`
+
+mov 0 5 #move a value from the addr range to the v-addr range (in this case, it should be a one)
+prnt #prints a `c`
+
+dump #print the address space to check if the equl works as intended
+vdump #print the v-address space
