@@ -1,0 +1,5 @@
+vput 1 0
+vput 1 4
+vput 1 6
+prnt
+jmp 0

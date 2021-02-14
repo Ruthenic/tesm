@@ -8,7 +8,9 @@ var = {} #todo: make this impact available address space?
 with open(argv[1]) as file:
     lines = [line.rstrip('\n').split(' ') for line in file]
 #print(lines)
-for inst in lines:
+i=0
+while i < len(lines):
+    inst = lines[i]
     if inst[0] == 'put':
         #check and make sure that args are within constraints
         if int(inst[1]) > 1 or int(inst[1]) < 0:
@@ -40,15 +42,22 @@ for inst in lines:
             vaddr[int(inst[3])] = 1
         else:
             vaddr[int(inst[3])] = 0
+    if inst[0] == 'cpy':
+        vaddr[int(inst[2])] = addr[int(inst[1])]
     if inst[0] == 'flsh':
         addr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     if inst[0] == 'vflsh':
         vaddr = [0,0,0,0,0,0,0,0]
     if inst[0] == 'mov':
         vaddr[int(inst[2])] = addr[int(inst[1])]
+        vaddr[int(inst[1])] = 0
     if inst[0] == 'dump':
         print(addr)
     if inst[0] == 'vdump':
         print(vaddr)
     if inst[0].startswith('#'):
         pass #comments
+    if inst[0] != 'jmp':
+        i+=1
+    if inst[0] == 'jmp':
+        i = int(inst[1])
