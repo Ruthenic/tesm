@@ -1,0 +1,11 @@
+#micro syntax highlighting
+filetype: tesm
+detect:
+    filename: "\\.tesm$"
+rules:
+    - special: "(put|vput|prnt|equl|vequl|mov|flsh|vflsh|dump|vdump|jmp)"
+    - comment:
+        start: "#"
+        end: "$"
+        rules:
+            - todo: "(TODO|todo):?"
