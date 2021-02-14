@@ -24,7 +24,7 @@ vput 0 6
 vput 0 0 #`,`
 prnt
 
-vflsh #convienence v-addr flush to get rid of the old letter as none of it is used here
+vflsh #convenience v-addr flush to get rid of the old letter as none of it is used here
 vput 1 1 #` `
 prnt
 
