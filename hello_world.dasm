@@ -1,0 +1,62 @@
+#hello world is quite infuriating to write, but *technically*
+
+vput 1 0
+vput 1 3 #`H`
+prnt
+
+vput 1 1
+vput 1 6
+vput 1 4
+vput 0 3 #`e`
+prnt
+
+vput 1 3
+vput 0 6 #`l`
+prnt
+prnt #we can print it twice, thankfully
+
+vput 1 5
+vput 1 6 #`o`
+prnt
+
+vput 0 5
+vput 0 6
+vput 0 0 #`,`
+prnt
+
+vflsh #convienence v-addr flush to get rid of the old letter as none of it is used here
+vput 1 1 #` `
+prnt
+
+vput 1 0
+vput 1 2
+vput 1 4
+vput 1 5
+vput 1 6 #`w`
+prnt
+
+vput 0 2
+vput 1 3 #`o`
+prnt
+
+vflsh
+vput 1 0
+vput 1 1
+vput 1 2
+vput 1 5
+prnt
+
+vflsh
+vput 1 0
+vput 1 1
+vput 1 3
+vput 1 4
+prnt
+
+vput 0 3
+prnt
+
+vflsh
+vput 1 1
+vput 1 6
+prnt
