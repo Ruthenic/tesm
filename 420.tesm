@@ -1,0 +1,11 @@
+vput 1 1
+vput 1 2
+vput 1 4
+prnt
+
+vput 0 4
+vput 1 5
+prnt
+
+vput 0 5
+prnt
