@@ -57,7 +57,12 @@ while i < len(lines):
         print(vaddr)
     if inst[0].startswith('#'):
         pass #comments
-    if inst[0] != 'jmp':
-        i+=1
+    if inst[0] != 'jmp' and inst[0] != 'jie':
+        i += 1
     if inst[0] == 'jmp':
         i = int(inst[1])
+    if inst[0] == 'jie':
+        if addr[int(inst[1])] == addr[int(inst[2])]:
+            i = int(inst[3])
+        else:
+            i += 1

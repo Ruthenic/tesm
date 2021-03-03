@@ -3,7 +3,7 @@ filetype: tesm
 detect:
     filename: "\\.tesm$"
 rules:
-    - special: "(put|vput|prnt|equl|vequl|mov|flsh|vflsh|dump|vdump|jmp)"
+    - special: "(put|vput|prnt|equl|vequl|mov|flsh|vflsh|dump|vdump|jmp|jie)"
     - comment:
         start: "#"
         end: "$"
