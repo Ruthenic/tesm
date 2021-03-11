@@ -5,9 +5,18 @@ def throw(exception):
 addr = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 vaddr = [0,0,0,0,0,0,0,0]
 var = {} #todo: make this impact available address space?
+opcodes = ['put', 'vput', 'prnt', 'equl', 'vequl', 'cpy', 'flsh', 'vflsh', 'mov', 'jmp', 'jie']
 with open(argv[1]) as file:
     lines = [line.rstrip('\n').split(' ') for line in file]
 #print(lines)
+lc = 1
+for oc in lines:
+    i=0
+    for av in opcodes:
+        i+=oc[0].find(av)
+    if i == -11 and not oc[0].startswith('#') and not oc[0] == '':
+        throw("Unknown opcode " + str(oc[0]) + "\n(Line " + str(lc) + ")")
+    lc+=1
 i=0
 while i < len(lines):
     inst = lines[i]
@@ -50,7 +59,7 @@ while i < len(lines):
         vaddr = [0,0,0,0,0,0,0,0]
     if inst[0] == 'mov':
         vaddr[int(inst[2])] = addr[int(inst[1])]
-        vaddr[int(inst[1])] = 0
+        addr[int(inst[1])] = 0
     if inst[0] == 'dump':
         print(addr)
     if inst[0] == 'vdump':
